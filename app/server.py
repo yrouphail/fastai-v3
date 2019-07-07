@@ -78,13 +78,13 @@ async def analyze(request):
     pleu = pleu.numpy()*100
     pleu_final = round(pleu, 2)
     return JSONResponse({'result': 'Atelectasis:' +  str(atel_final) + '%'
-                         \n
+                         \\n
                          'Cardiomegaly:' +  str(card_final) + '%'
-                         \n
+                         \\n
                          'Consolidation:' +  str(cons_final) + '%'
-                         \n
+                         \\n
                          'Edema:' +  str(edem_final) + '%'
-                         \n
+                         \\n
                          'Pleural Effusion:' +  str(pleu_final) + '%'})
                          
                          
