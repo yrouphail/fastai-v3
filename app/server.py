@@ -8,6 +8,7 @@ from starlette.applications import Starlette
 from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
+import numpy as np
 
 export_file_url = 'https://www.googleapis.com/drive/v3/files/1k2hEbEsQYPyXC3WwRxSJBHzp9q192rNj?alt=media&key=AIzaSyDypQ3rlE3w6bF8D3MpXWsmdtjffNYzfTE'
 export_file_name = 'mini-CheXpert-se101.pkl'
@@ -61,7 +62,17 @@ async def analyze(request):
     img_bytes = await (img_data['file'].read())
     img = open_image(BytesIO(img_bytes))
     pred_class,pred_idx,outputs = learn.predict(img)
-    return JSONResponse({'result': str(outputs)})
+    atel = outputs[0]
+    atel_final = atel.numpy()*100
+    card = outputs[1]
+    card_final = card.numpy()*100
+    cons = outputs[2]
+    cons_final = cons.numpy()*100
+    edem = outputs[3]
+    edem_final = edem.numpy()*100
+    pleu = outputs[4]
+    pleu_final = pleu.numpy()*100
+    return JSONResponse({'result': 'Atelectasis:' + str(atel_final) + '%'})
 
 
 if __name__ == '__main__':
