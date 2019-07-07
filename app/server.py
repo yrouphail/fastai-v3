@@ -10,7 +10,7 @@ from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
 export_file_url = 'https://www.googleapis.com/drive/v3/files/1k2hEbEsQYPyXC3WwRxSJBHzp9q192rNj?alt=media&key=AIzaSyDbWoxSxzHfAidtSdrVxaiM5uR_XC9M_-A'
-export_file_name = 'export.pkl'
+export_file_name = 'mini-CheXpert-se101.pkl'
 
 classes = ['Atelectasis', 'Cardiomegaly', 'Consolidation', 'Edema', 'Pleural Effusion']
 path = Path(__file__).parent
