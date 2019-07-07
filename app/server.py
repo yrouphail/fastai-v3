@@ -61,7 +61,7 @@ async def analyze(request):
     img_bytes = await (img_data['file'].read())
     img = open_image(BytesIO(img_bytes))
     pred_class,pred_idx,outputs = learn.predict(img)
-    return JSONResponse('Atelectasis{'result': str(outputs)})
+    return JSONResponse({'result': str(outputs)})
 
 
 if __name__ == '__main__':
