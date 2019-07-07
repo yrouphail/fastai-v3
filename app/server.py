@@ -70,7 +70,7 @@ async def analyze(request):
     card_final = round(card, 2)
     cons = outputs[2]
     cons = cons.numpy()*100
-    card_final = round(cons, 2)
+    cons_final = round(cons, 2)
     edem = outputs[3]
     edem = edem.numpy()*100
     edem_final = round(edem, 2)
