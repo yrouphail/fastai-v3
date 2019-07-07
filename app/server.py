@@ -63,16 +63,26 @@ async def analyze(request):
     img = open_image(BytesIO(img_bytes))
     pred_class,pred_idx,outputs = learn.predict(img)
     atel = outputs[0]
-    atel_final = atel.numpy()*100
+    atel = atel.numpy()*100
+    atel_final = round(atel, 2)
     card = outputs[1]
-    card_final = card.numpy()*100
+    card = card.numpy()*100
+    card_final = round(card, 2)
     cons = outputs[2]
-    cons_final = cons.numpy()*100
+    cons = cons.numpy()*100
+    card_final = round(cons, 2)
     edem = outputs[3]
-    edem_final = edem.numpy()*100
+    edem = edem.numpy()*100
+    edem_final = round(edem, 2)
     pleu = outputs[4]
-    pleu_final = pleu.numpy()*100
-    return JSONResponse({'result': 'Atelectasis:' + str(atel_final) + '%'})
+    pleu = pleu.numpy()*100
+    pleu_final = round(pleu, 2)
+    return JSONResponse({'result': 'Atelectasis:' +  str(atel_final) + '%'
+                         \n'Cardiomegaly:' +  str(card_final) + '%'
+                         \n'Consolidation:' +  str(cons_final) + '%'
+                         \n'Edema:' +  str(edem_final) + '%'
+                         \n'Pleural Effusion:' +  str(pleu_final) + '%'
+                        })
 
 
 if __name__ == '__main__':
