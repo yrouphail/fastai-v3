@@ -1022,7 +1022,7 @@ input, select, textarea {
 		color: #ffffff !important;
 		cursor: pointer;
 		display: inline-block;
-		font: "Source Sans Pro", sans-serif;
+		font-family: "Source Sans Pro", sans-serif;
 		font-size: 0.8rem;
 		font-weight: 300;
 		height: 2.75rem;
